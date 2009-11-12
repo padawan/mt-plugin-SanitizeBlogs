@@ -1,0 +1,27 @@
+name: Sanitize Blogs
+id: SanitizeBlogs
+key: SanitizeBlogs
+author_link: http://www.sixapart.com/
+author_name: Six Apart Ltd.
+description: >>
+    Strip unwanted HTML tags from community entries created in 
+    all blogs whose Site URL begins with a specific URL prefix.
+version: 1.1
+l10n_class: SanitizeBlogs::L10N
+
+settings:
+    sanitizeblogs_sanitizespec:
+        Default: ''
+    sanitizeblogs_urlprefix:
+        Default: ''
+
+system_config_template:
+    code: $SanitizeBlogs::SanitizeBlogs::config_template
+
+callbacks:
+    cms_pre_save.entry:
+        code: $SanitizeBlogs::SanitizeBlogs::_sanitize_entry
+        priority: 10
+    api_pre_save.entry:
+        code: $SanitizeBlogs::SanitizeBlogs::_sanitize_entry
+        priority: 10
