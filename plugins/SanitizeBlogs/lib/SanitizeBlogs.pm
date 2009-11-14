@@ -51,18 +51,18 @@ sub config_template {
     my $form = <<HTML;
 <mtapp:setting
     id="sanitizeblogs_sanitizespec"
-    label="<__trans phrase="Sanitize Spec">"
-    hint="<__trans phrase="List of HTML tag names to allow, separated by commas. For each HTML tag, any attributes to be allowed for that tag should also be listed, separated by spaces. Functions in same manner as, but is distinct from, Movable Type's GlobalSanitizeSpec configuration setting.">"
+    label="<__trans phrase="Allowed Tags">"
+    hint='<__trans phrase="List of allowed HTML tags and tag attributes. Allowed Tags should be comma-separated. Allowed tag attributes should be space-separated and listed after the tag which they can be used with. eg. &quot;a href,em,strong&quot; (Functions in same manner as, but is distinct from, the <a href="[_1]">GlobalSanitizeSpec</a> configuration setting.)" params="http://www.movabletype.org/config/globalsanitizespec">'
     show_hint="1">
-    <input type="text" size="75" name="sanitizeblogs_sanitizespec" id="sanitizeblogs_sanitizespec" value="<mt:var name="sanitizeblogs_sanitizespec" escape="html">" />
+    <input type="text" size="70" name="sanitizeblogs_sanitizespec" id="sanitizeblogs_sanitizespec" value="<mt:var name="sanitizeblogs_sanitizespec" escape="html">" />
 </mtapp:setting>
 
 <mtapp:setting
     id="sanitizeblogs_urlprefix"
     label="<__trans phrase="Site URL Prefix">"
-    hint="Sanitize Spec setting will be applied to community entries created in blogs which have a Site URL beginning with this setting. Must begin with http:// or https://."
+    hint='Non-allowed tags will be removed from entries created in blogs which have a Site URL beginning with the following URL. eg "http://www.domain.com/user-blogs/"'
     show_hint="1">
-    <input type="text" size="75" name="sanitizeblogs_urlprefix" id="sanitizeblogs_urlprefix" value="<mt:var name="sanitizeblogs_urlprefix" escape="html">" />
+    <input type="text" size="70" name="sanitizeblogs_urlprefix" id="sanitizeblogs_urlprefix" value="<mt:var name="sanitizeblogs_urlprefix" escape="html">" />
 </mtapp:setting>
 HTML
 
